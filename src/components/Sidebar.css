@@ -1,0 +1,132 @@
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar.collapsed {
+    width: 80px;
+  }
+  
+  .toggle-btn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    border-radius: 50%;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 20px;
+  }
+  
+  .menu li {
+    margin-bottom: 20px;
+  }
+  
+  .menu li a {
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  
+  .menu li a i {
+    font-size: 20px;
+  }
+  
+  .menu li a span {
+    margin-left: 10px;
+  }
+  /* Sidebar Base */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #111520;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+/* Collapsed State */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  right: -20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3e7bfa;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Adjustments */
+.sidebar-header {
+  padding: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.app-logo h1, 
+.app-logo span {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .app-logo h1,
+.sidebar.collapsed .app-logo span {
+  opacity: 0;
+  width: 0;
+}
+
+/* Navigation Items */
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.nav-item span {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .nav-item span {
+  opacity: 0;
+  width: 0;
+}
+
+/* Footer Section */
+.sidebar-footer {
+  padding: 20px;
+  white-space: nowrap;
+}
+
+.plan-info span {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .plan-info span {
+  opacity: 0;
+  width: 0;
+}

@@ -1,19 +1,40 @@
+// App.js
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/SideBar';
+import SummaryDashboard from './components/SummaryDashboard';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import BudgetSection from './components/BudgetSection';
-import SummaryDashboard from './components/SummaryDashboard';
+import AnalyticsPage from './components/Analytics/Analytics'; // <-- Import Analytics Page
 import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      <h1>Finance Viz</h1>
-      <SummaryDashboard />
-      <TransactionForm />
-      <TransactionList />
-      <BudgetSection />
-    </div>
+    <Router>
+      <div className="app-container">
+        <Sidebar />
+        <main className="main-content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="content-wrapper">
+                  <h1 className="app-title">Finance Viz</h1>
+                  <SummaryDashboard />
+                  <div className="form-and-list">
+                    <TransactionForm />
+                    <TransactionList />
+                  </div>
+                  <BudgetSection />
+                </div>
+              }
+            />
+            <Route path="/analytics" element={<AnalyticsPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

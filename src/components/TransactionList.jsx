@@ -28,26 +28,43 @@ const TransactionList = () => {
   }, []);
 
   return (
-    <div className="transaction-card">
-      <h3 className="transaction-title">Transactions</h3>
+    <div className="section-container">
+      <div className="section-header">
+        <h2>Recent Transactions</h2>
+        <button className="view-all-btn">View All</button>
+      </div>
+
       {transactions.length === 0 ? (
-        <p className="transaction-empty">No transactions yet.</p>
+        <p className="empty-message">No transactions yet.</p>
       ) : (
-        <ul className="transaction-list">
+        <div className="transaction-table">
+          <div className="table-header">
+            <div>Description</div>
+            <div>Category</div>
+            <div>Date</div>
+            <div>Amount</div>
+            <div></div>
+          </div>
           {transactions.map((t) => (
-            <li key={t._id} className="transaction-item">
-              <div className="transaction-details">
-                <span className="amount">₹{Number(t.amount).toLocaleString()}</span>
-                <span className="desc">{t.description}</span>
-                <span className="date">{new Date(t.date).toLocaleDateString()}</span>
-                <span className="category">({t.category})</span>
+            <div key={t._id} className="transaction-item">
+              <div className="transaction-info">
+                <div className="transaction-details">
+                  <span className="desc">{t.description}</span>
+                </div>
+              </div>
+              <div className="transaction-category">{t.category}</div>
+              <div className="transaction-date">{new Date(t.date).toLocaleDateString()}</div>
+              <div
+                className={`transaction-amount ${t.type === 'income' ? 'income' : 'expense'}`}
+              >
+                {t.type === 'income' ? '+' : '-'}₹{Number(t.amount).toLocaleString()}
               </div>
               <button className="delete-btn" onClick={() => deleteTransaction(t._id)}>
                 Remove
               </button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

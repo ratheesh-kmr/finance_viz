@@ -1,66 +1,103 @@
-.transaction-card {
-    background: var(--card-dark);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-glow);
-    margin-bottom: 2rem;
-  }
-  
-  .transaction-title {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
-    font-size: 1.5rem;
-  }
-  
-  .transaction-empty {
-    text-align: center;
-    color: var(--text-light);
-  }
-  
-  .transaction-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-bottom: 0.8rem;
-    background: #2e3b4e; /* Consistent background */
-    border-radius: 0.5rem;
-  }
-  
-  .transaction-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .amount {
-    font-weight: bold;
-    color: var(--accent); /* Consistent accent color */
-  }
-  
-  .desc,
-  .date,
-  .category {
-    color: var(--text-light); /* Consistent text color */
-    font-size: 0.9rem;
-  }
-  
-  .delete-btn {
-    background-color: var(--danger); /* Consistent danger color */
-    border: none;
-    color: white;
-    padding: 0.6rem 1rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .delete-btn:hover {
-    background-color: #ff1744; /* Darker danger color on hover */
-  }
+.section-container {
+  background-color: var(--bg-card); /* Dark card background */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.view-all-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.empty-message {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.transaction-table {
+  width: 100%;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.transaction-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+}
+
+.transaction-item:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.desc {
+  color: var(--text-secondary);
+}
+
+.date,
+.category {
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.transaction-amount {
+  text-align: right;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+.transaction-amount.income {
+  color: #28a745; /* green */
+}
+
+.transaction-amount.expense {
+  color: #dc3545; /* red */
+}

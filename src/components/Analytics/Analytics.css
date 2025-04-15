@@ -1,0 +1,19 @@
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .chart-box {
+    background-color: #1e1e2f;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .chart-box h2 {
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  

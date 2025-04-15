@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './TransactionForm.css'; 
+import './TransactionForm.css';
 
 const TransactionForm = () => {
-  const [formData, setFormData] = useState({ amount: '', date: '', description: '', category: 'Others' });
+  const [formData, setFormData] = useState({
+    amount: '',
+    date: '',
+    description: '',
+    category: 'Others',
+    type: 'expense' // new field to indicate income/expense
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -12,11 +18,11 @@ const TransactionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://localhost:5000/api/transactions', formData);
-    setFormData({ amount: '', date: '', description: '', category: 'Others' });
+    setFormData({ amount: '', date: '', description: '', category: 'Others', type: 'expense' });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="transaction-form">
+    <form onSubmit={handleSubmit} className="transaction-form card">
       <h3>Add Transaction</h3>
       <div className="input-group">
         <label htmlFor="amount">Amount</label>
@@ -68,6 +74,19 @@ const TransactionForm = () => {
           <option>Travel</option>
           <option>Entertainment</option>
           <option>Others</option>
+        </select>
+      </div>
+
+      <div className="input-group">
+        <label htmlFor="type">Type</label>
+        <select
+          id="type"
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+        >
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
         </select>
       </div>
 

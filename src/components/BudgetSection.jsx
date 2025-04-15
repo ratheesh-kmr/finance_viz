@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './BudgetSection.css'; // Import CSS file
+import './BudgetSection.css';
 
 const BudgetSection = () => {
   const [budgets, setBudgets] = useState([]);
@@ -23,10 +23,14 @@ const BudgetSection = () => {
   }, []);
 
   return (
-    <div className="card">
+    <div className="budget-card">
       <h3>Budgets</h3>
-      <form onSubmit={addBudget}>
-        <select name="category" value={newBudget.category} onChange={(e) => setNewBudget({ ...newBudget, category: e.target.value })}>
+      <form onSubmit={addBudget} className="budget-form">
+        <select
+          name="category"
+          value={newBudget.category}
+          onChange={(e) => setNewBudget({ ...newBudget, category: e.target.value })}
+        >
           <option>Food</option>
           <option>Utilities</option>
           <option>Travel</option>
@@ -50,9 +54,11 @@ const BudgetSection = () => {
         />
         <button type="submit">Add Budget</button>
       </form>
-      <ul>
+      <ul className="budget-list">
         {budgets.map((b) => (
-          <li key={b._id}>{b.category}: ₹{b.budgetAmount} ({b.month})</li>
+          <li key={b._id}>
+            {b.category}: ₹{b.budgetAmount} ({b.month})
+          </li>
         ))}
       </ul>
     </div>
