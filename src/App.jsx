@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="container">
-      <h1>Personal Finance Visualizer</h1>
+      <h1>Finance Viz</h1>
       <SummaryDashboard />
       <TransactionForm />
       <TransactionList />

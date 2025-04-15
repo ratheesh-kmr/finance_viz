@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './BudgetSection.css'; // Import CSS file
 
 const BudgetSection = () => {
   const [budgets, setBudgets] = useState([]);

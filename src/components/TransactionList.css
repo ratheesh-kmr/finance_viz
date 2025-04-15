@@ -1,0 +1,66 @@
+.transaction-card {
+    background: var(--card-dark);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-glow);
+    margin-bottom: 2rem;
+  }
+  
+  .transaction-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-size: 1.5rem;
+  }
+  
+  .transaction-empty {
+    text-align: center;
+    color: var(--text-light);
+  }
+  
+  .transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: #2e3b4e; /* Consistent background */
+    border-radius: 0.5rem;
+  }
+  
+  .transaction-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .amount {
+    font-weight: bold;
+    color: var(--accent); /* Consistent accent color */
+  }
+  
+  .desc,
+  .date,
+  .category {
+    color: var(--text-light); /* Consistent text color */
+    font-size: 0.9rem;
+  }
+  
+  .delete-btn {
+    background-color: var(--danger); /* Consistent danger color */
+    border: none;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff1744; /* Darker danger color on hover */
+  }
