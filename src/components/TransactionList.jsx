@@ -25,7 +25,7 @@ const TransactionList = () => {
         {transactions.map((t) => (
           <li key={t._id}>
             ₹{t.amount} - {t.description} ({new Date(t.date).toLocaleDateString()}) - {t.category}
-            <button onClick={() => deleteTransaction(t._id)}>❌</button>
+            <button onClick={() => deleteTransaction(t._id)}> Remove</button>
           </li>
         ))}
       </ul>
