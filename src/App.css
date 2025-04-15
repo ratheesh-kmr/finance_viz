@@ -1,43 +1,176 @@
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
-  font-family: sans-serif;
+:root {
+  --bg-dark: #12182b;
+  --bg-gradient: linear-gradient(135deg, #12182b, #283149);
+  --card-dark: #1e253d;
+  --text-light: #e0e0e0;
+  --accent: #64b5f6;
+  --accent-soft: #42a5f5;
+  --danger: #e57373;
+  --shadow-glow: 0 8px 20px rgba(100, 181, 246, 0.2);
+  --border-radius: 1.5rem;
+  --card-padding: 2.5rem;
+  --form-input-bg: #283149;
+  --form-input-border-radius: 0.8rem;
+  --button-padding: 1.2rem 2rem;
+  --transition-duration: 0.3s;
 }
 
-.card {
-  background: #f9f9f9;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.card h3 {
-  margin-bottom: 0.5rem;
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem;
 }
 
-.card input,
-.card select {
-  margin: 0.3rem;
-  padding: 0.5rem;
-  width: calc(100% - 1rem);
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+h1 {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--accent);
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(100, 181, 246, 0.3);
+  letter-spacing: 0.5px;
 }
 
-.card button {
-  padding: 0.5rem 1rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 .dashboard {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
+
+.card {
+  background: var(--card-dark);
+  padding: var(--card-padding);
+  border-radius: var(--border-radius);
+  flex: 1 1 280px;
+  box-shadow: var(--shadow-glow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(100, 181, 246, 0.35);
+}
+
+.transaction-form {
+  background: var(--card-dark);
+  padding: var(--card-padding);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: var(--shadow-glow);
+  margin-bottom: 4rem;
+}
+
+.transaction-form input,
+.transaction-form select {
+  padding: 1.2rem;
+  border-radius: var(--form-input-border-radius);
+  border: none;
+  outline: none;
+  background-color: var(--form-input-bg);
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.transaction-form button {
+  padding: var(--button-padding);
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--form-input-border-radius);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease, transform 0.2s ease;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.transaction-form button:hover {
+  background-color: var(--accent-soft);
+  transform: scale(1.05);
+}
+
+.transaction-list {
+  background: var(--card-dark);
+  padding: var(--card-padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-glow);
+  margin-bottom: 4rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  background: #283149;
+  border-radius: 0.8rem;
+  align-items: center;
+}
+
+.transaction-item p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.transaction-item .amount {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.transaction-item button {
+  background-color: var(--danger);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color var(--transition-duration) ease, transform 0.2s ease;
+}
+
+.transaction-item button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .transaction-form,
+  .transaction-list {
+    padding: 2rem;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
