@@ -8,7 +8,7 @@ const TransactionForm = () => {
     date: '',
     description: '',
     category: 'Others',
-    type: 'expense' // new field to indicate income/expense
+    type: 'expense'
   });
 
   const handleChange = (e) => {
@@ -73,6 +73,9 @@ const TransactionForm = () => {
           <option>Utilities</option>
           <option>Travel</option>
           <option>Entertainment</option>
+          <option>Transport</option>
+          <option>Health</option>
+          <option>Shopping</option>
           <option>Others</option>
         </select>
       </div>
