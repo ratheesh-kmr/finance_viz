@@ -44,10 +44,23 @@
   }
 
   .chart-box {
-    padding: 0.8rem;
+    background-color: #1e1e2f;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
-
+  
   .chart-box h2 {
     font-size: 0.95rem;
   }
-}
+  }
+  @media (max-width: 768px) {
+    .chart-box {
+      padding: 1rem; /* Increased from 1rem */
+    }
+  
+    .chart-box h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  

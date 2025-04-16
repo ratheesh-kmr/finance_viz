@@ -754,8 +754,10 @@ body {
 
   .home-dashboard .card-value {
     font-size: 18px;
+    word-wrap: break-word;
+    line-height: 1.2;
   }
-
+  
   .home-dashboard .card-subtitle {
     font-size: 11px;
   }
