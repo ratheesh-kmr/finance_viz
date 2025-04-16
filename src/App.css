@@ -529,4 +529,239 @@ body {
     min-width: unset;
   }
 }
+/* Enhanced Responsive Styles for SummaryDashboard */
 
+.summary-dashboard {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.metric-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-card-hover);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 auto;
+}
+
+.trend {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.trend.positive {
+  background-color: rgba(38, 197, 111, 0.1);
+  color: var(--accent-green);
+}
+
+.trend.negative {
+  background-color: rgba(244, 91, 105, 0.1);
+  color: var(--accent-red);
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .metric-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .metric-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header h3 {
+    font-size: 15px;
+  }
+
+  .card-value {
+    font-size: 22px;
+  }
+
+  .card-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-dashboard {
+    padding: 10px;
+  }
+
+  .metric-cards {
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px;
+  }
+
+  .card-value {
+    font-size: 20px;
+  }
+}
+/* ---------------- Sidebar Responsive ---------------- */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 1100;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar-wrapper {
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-content {
+  height: 100%;
+  background-color: var(--sidebar-bg);
+}
+
+/* Responsive overrides */
+@media (max-width: 768px) {
+  .sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .sidebar-wrapper.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-wrapper.expanded {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-and-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .transaction-table {
+    overflow-x: auto;
+  }
+
+  .transaction-item,
+  .table-header {
+    min-width: 650px;
+  }
+}
+/* 🔵 Default layout */
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* ✅ Apply small layout for mobile on Home only */
+@media (max-width: 768px) {
+  .home-dashboard .metric-cards {
+    grid-template-columns: repeat(3, 1fr); /* Force triple column */
+    gap: 12px;
+  }
+
+  .home-dashboard .metric-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .home-dashboard .card-header h3 {
+    font-size: 12px;
+  }
+
+  .home-dashboard .card-value {
+    font-size: 18px;
+  }
+
+  .home-dashboard .card-subtitle {
+    font-size: 11px;
+  }
+
+  .home-dashboard .trend {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+}

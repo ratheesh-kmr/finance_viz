@@ -8,7 +8,7 @@ const Sidebar = () => {
     const currentPath = location.pathname;
   
     return (
-      <aside className="sidebar">
+      <aside className="sidebar-content">
         <div className="sidebar-header">
           <div className="app-logo">
             <i className="icon-wallet"></i>

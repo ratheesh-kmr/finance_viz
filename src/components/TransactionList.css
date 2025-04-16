@@ -167,3 +167,100 @@
   border-radius: 6px;
   cursor: pointer;
 }
+.form-and-list {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.section-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  overflow-x: auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.transaction-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-header,
+.transaction-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+  padding: 12px 16px;
+  align-items: center;
+  min-width: 600px;
+}
+
+.transaction-item:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* ✅ Align Form and List - Responsive */
+.form-and-list {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ✅ Make everything scale better on small screens */
+@media (max-width: 768px) {
+  .transaction-form.card {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .transaction-form h3 {
+    font-size: 16px;
+  }
+
+  .transaction-form input,
+  .transaction-form select {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .transaction-form .submit-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .section-container {
+    padding: 16px;
+  }
+
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  .table-header,
+  .transaction-item {
+    grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .form-and-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

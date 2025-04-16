@@ -1,26 +1,26 @@
 .transaction-form.card {
-  background-color: var(--bg-card); /* Dark background */
+  background-color: var(--bg-card);
   border-radius: 8px;
   padding: 20px;
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 500px;
-  margin-left: 190px;
+  margin: 0 auto; /* center align */
 }
 
 .transaction-form h3 {
   font-size: 18px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .transaction-form .input-group {
   margin-bottom: 15px;
-  
-}
-.transaction-form input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Makes the icon white */
 }
 
+.transaction-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
 .transaction-form label {
   display: block;
@@ -35,7 +35,7 @@
   padding: 10px;
   border-radius: 6px;
   border: 1px solid var(--border-color);
-  background-color: var(--sidebar-bg); /* Darker input background */
+  background-color: var(--sidebar-bg);
   color: var(--text-primary);
   font-size: 14px;
   outline: none;
