@@ -16,7 +16,7 @@ const CategoryPieChart = () => {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/transactions').then(res => {
+    axios.get('https://finance-viz-backend.onrender.com/api/transactions').then(res => {
       const grouped = res.data.reduce((acc, t) => {
         if (t.type === 'expense') {
           acc[t.category] = (acc[t.category] || 0) + Math.abs(t.amount);

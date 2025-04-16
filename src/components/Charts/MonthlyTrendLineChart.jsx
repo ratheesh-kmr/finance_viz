@@ -16,7 +16,7 @@ const MonthlyTrendLineChart = () => {
   const [monthlyData, setMonthlyData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/transactions').then((res) => {
+    axios.get('https://finance-viz-backend.onrender.com/api/transactions').then((res) => {
       const grouped = {};
 
       res.data.forEach((t) => {

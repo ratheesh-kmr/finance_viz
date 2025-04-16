@@ -16,7 +16,7 @@ const IncomeExpenseBarChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/transactions');
+        const res = await axios.get('https://finance-viz-backend.onrender.com/api/transactions');
 
         let income = 0;
         let expense = 0;
