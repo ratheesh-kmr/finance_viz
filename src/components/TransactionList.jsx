@@ -13,6 +13,7 @@ const TransactionList = () => {
     type: 'expense',
   });
   const [showModal, setShowModal] = useState(false);
+  const [showAllTransactions, setShowAllTransactions] = useState(false);  // New state for handling the "View All" button
 
   const fetchTransactions = async () => {
     try {
@@ -69,7 +70,12 @@ const TransactionList = () => {
     <div className="section-container">
       <div className="section-header">
         <h2>Recent Transactions</h2>
-        <button className="view-all-btn">View All</button>
+        <button
+          className="view-all-btn"
+          onClick={() => setShowAllTransactions(!showAllTransactions)}  // Toggle the view
+        >
+          {showAllTransactions ? 'Show Less' : 'View All'}
+        </button>
       </div>
 
       {transactions.length === 0 ? (
@@ -84,33 +90,33 @@ const TransactionList = () => {
             <div>Actions</div>
           </div>
 
-          {transactions.map((t) => (
-  <div
-    key={t._id}
-    className="transaction-item"
-    onClick={() => openEditModal(t)}
-    style={{ cursor: 'pointer' }}
-  >
-    <div className="transaction-info">
-      <span className="desc">{t.description}</span>
-    </div>
-    <div className="transaction-category">{t.category}</div>
-    <div className="transaction-date">{new Date(t.date).toLocaleDateString()}</div>
-    <div className={`transaction-amount ${t.type === 'income' ? 'income' : 'expense'}`}>
-      {t.type === 'income' ? '+' : '-'}₹{Number(t.amount).toLocaleString()}
-    </div>
-    <button
-      className="delete-btn"
-      onClick={(e) => {
-        e.stopPropagation(); // Prevent popup from opening
-        deleteTransaction(t._id);
-      }}
-    >
-      Remove
-    </button>
-  </div>
-))}
-
+          {/* Display either the first 4 transactions or all transactions based on `showAllTransactions` */}
+          {(showAllTransactions ? transactions : transactions.slice(0, 4)).map((t) => (
+            <div
+              key={t._id}
+              className="transaction-item"
+              onClick={() => openEditModal(t)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="transaction-info">
+                <span className="desc">{t.description}</span>
+              </div>
+              <div className="transaction-category">{t.category}</div>
+              <div className="transaction-date">{new Date(t.date).toLocaleDateString()}</div>
+              <div className={`transaction-amount ${t.type === 'income' ? 'income' : 'expense'}`}>
+                {t.type === 'income' ? '+' : '-'}₹{Number(t.amount).toLocaleString()}
+              </div>
+              <button
+                className="delete-btn"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent popup from opening
+                  deleteTransaction(t._id);
+                }}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
         </div>
       )}
 
