@@ -14,7 +14,12 @@
 
 .transaction-form .input-group {
   margin-bottom: 15px;
+  
 }
+.transaction-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Makes the icon white */
+}
+
 
 .transaction-form label {
   display: block;

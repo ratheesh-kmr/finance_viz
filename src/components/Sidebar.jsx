@@ -1,51 +1,58 @@
 // Sidebar.jsx
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import AnalyticsPage from './Analytics/Analytics';
 
 const Sidebar = () => {
-  return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <div className="app-logo">
-          <i className="icon-wallet"></i>
-          <h1>FinanceViz</h1>
-          <span>Web app</span>
+    const location = useLocation();
+    const currentPath = location.pathname;
+  
+    return (
+      <aside className="sidebar">
+        <div className="sidebar-header">
+          <div className="app-logo">
+            <i className="icon-wallet"></i>
+            <h1>FinanceViz</h1>
+            <span>Web app</span>
+          </div>
         </div>
-      </div>
-      
-      <nav className="sidebar-nav">
-        <a href="/" className="nav-item active">
-          <i className="icon-home"></i>
-          <span>Home</span>
-        </a>
-        <a href="/Analytics" className="nav-item">
-          <i className="icon-chart"></i>
-          <span>Analytics</span>
-        </a>
-        <a href="/" className="nav-item">
-          <i className="icon-calculator"></i>
-          <span>Budget</span>
-        </a>
-        <a href="/" className="nav-item">
-          <i className="icon-bank"></i>
-          <span>Accounts</span>
-        </a>
-        <a href="/" className="nav-item">
-          <i className="icon-settings"></i>
-          <span>Settings</span>
-        </a>
-      </nav>
-      
-      <div className="sidebar-footer">
-        <div className="plan-info">
-          <i className="icon-star"></i>
-          <span>Developed By Ratheesh Kumar</span>
+  
+        <nav className="sidebar-nav">
+          <Link to="/" className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>
+            <i className="icon-home"></i>
+            <span>Home</span>
+          </Link>
+  
+          <Link to="/Analytics" className={`nav-item ${currentPath === '/Analytics' ? 'active' : ''}`}>
+            <i className="icon-chart"></i>
+            <span>Analytics</span>
+          </Link>
+  
+          <Link to="/BudgetSection" className={`nav-item ${currentPath === '/BudgetSection' ? 'active' : ''}`}>
+            <i className="icon-calculator"></i>
+            <span>Budget</span>
+          </Link>
+  
+          {/* <Link to="/Accounts" className={`nav-item ${currentPath === '/Accounts' ? 'active' : ''}`}>
+            <i className="icon-bank"></i>
+            <span>Accounts</span>
+          </Link>
+  
+          <Link to="/Settings" className={`nav-item ${currentPath === '/Settings' ? 'active' : ''}`}>
+            <i className="icon-settings"></i>
+            <span>Settings</span>
+          </Link> */}
+        </nav>
+  
+        <div className="sidebar-footer">
+          <div className="plan-info">
+            <i className="icon-star"></i>
+            <span>Developed By Ratheesh Kumar</span>
+          </div>
         </div>
-        
-        
-      </div>
-    </aside>
-  );
-};
-
-export default Sidebar;
+      </aside>
+    );
+  };
+  
+  export default Sidebar;
+  

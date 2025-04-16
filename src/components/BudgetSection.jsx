@@ -18,48 +18,75 @@ const BudgetSection = () => {
     fetchBudgets();
   };
 
+  const deleteBudget = async (id) => {
+    await axios.delete(`http://localhost:5000/api/budgets/${id}`);
+    fetchBudgets();
+  };
+
   useEffect(() => {
     fetchBudgets();
   }, []);
 
   return (
     <div className="budget-card">
-      <h3>Budgets</h3>
+      <div className="budget-header">
+        <h3>Monthly Budgets</h3>
+      </div>
       <form onSubmit={addBudget} className="budget-form">
-        <select
-          name="category"
-          value={newBudget.category}
-          onChange={(e) => setNewBudget({ ...newBudget, category: e.target.value })}
-        >
-          <option>Food</option>
-          <option>Utilities</option>
-          <option>Travel</option>
-          <option>Entertainment</option>
-          <option>Others</option>
-        </select>
-        <input
-          name="budgetAmount"
-          type="number"
-          placeholder="Budget Amount"
-          value={newBudget.budgetAmount}
-          onChange={(e) => setNewBudget({ ...newBudget, budgetAmount: e.target.value })}
-          required
-        />
-        <input
-          name="month"
-          type="month"
-          value={newBudget.month}
-          onChange={(e) => setNewBudget({ ...newBudget, month: e.target.value })}
-          required
-        />
+        <div className="form-group">
+          <label>Category</label>
+          <select
+            name="category"
+            value={newBudget.category}
+            onChange={(e) => setNewBudget({ ...newBudget, category: e.target.value })}
+          >
+            <option>Food</option>
+            <option>Utilities</option>
+            <option>Travel</option>
+            <option>Entertainment</option>
+            <option>Others</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Budget Amount</label>
+          <input
+            name="budgetAmount"
+            type="number"
+            placeholder="Enter Amount"
+            value={newBudget.budgetAmount}
+            onChange={(e) => setNewBudget({ ...newBudget, budgetAmount: e.target.value })}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Month</label>
+          <input
+            name="month"
+            type="month"
+            value={newBudget.month}
+            onChange={(e) => setNewBudget({ ...newBudget, month: e.target.value })}
+            required
+          />
+        </div>
+
         <button type="submit">Add Budget</button>
       </form>
+
       <ul className="budget-list">
-        {budgets.map((b) => (
-          <li key={b._id}>
-            {b.category}: ₹{b.budgetAmount} ({b.month})
-          </li>
-        ))}
+        {budgets.length === 0 ? (
+          <li className="empty-budget">No budgets added yet.</li>
+        ) : (
+          budgets.map((b) => (
+            <li key={b._id} className="budget-item">
+              <div className="budget-info">
+                <span><strong>{b.category}</strong> - ₹{b.budgetAmount} ({b.month})</span>
+              </div>
+              <button className="delete-btn" onClick={() => deleteBudget(b._id)}>Remove</button>
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );

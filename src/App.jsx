@@ -26,11 +26,11 @@ function App() {
                     <TransactionForm />
                     <TransactionList />
                   </div>
-                  <BudgetSection />
                 </div>
               }
             />
             <Route path="/analytics" element={<AnalyticsPage />} />
+            <Route path="/BudgetSection" element={<BudgetSection/>} />
           </Routes>
         </main>
       </div>
