@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/SideBar';
+import Sidebar from './components/Sidebar';
 import SummaryDashboard from './components/SummaryDashboard';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
