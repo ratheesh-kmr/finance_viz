@@ -1,12 +1,48 @@
-# React + Vite
+# 💸 FinanceViz - Personal Finance Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FinanceViz is a full-stack personal finance tracking and visualization app. It allows users to manage their income, expenses, budgets, and analyze spending trends through interactive dashboards and charts.
 
-Currently, two official plugins are available:
+Built with **Vite + React.js** for the frontend, **Node.js + Express** for the backend, and **MongoDB** for persistent storage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 Secure transaction tracking (income & expense)
+- 📊 Interactive analytics (bar and pie charts)
+- 📝 Budget planning (monthly per-category budgets)
+- 📅 Recent transaction view with edit/delete
+- 📁 View all transactions at a glance
+- 📦 Fully responsive UI
+- 🎨 Modern dark theme with smooth UI experience
+
+---
+
+## 🔧 Tech Stack
+
+| Frontend | Backend | Database |
+|----------|---------|----------|
+| Vite + React | Node.js + Express | MongoDB |
+
+Additional:
+- Axios for API calls
+- CSS modules / Custom styling
+- React Router for navigation
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js & npm
+- MongoDB (local or cloud like Atlas)
+
+---
+
+## 🖥️ Frontend Setup (Vite + React)
+
+```bash
+cd client
+npm install
+npm run dev
