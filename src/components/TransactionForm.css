@@ -5,6 +5,7 @@
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 500px;
+  margin-left: 190px;
 }
 
 .transaction-form h3 {
