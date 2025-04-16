@@ -17,7 +17,7 @@ const TransactionList = () => {
 
   const fetchTransactions = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/transactions');
+      const res = await axios.get('https://finance-viz-backend.onrender.com/api/transactions');
       setTransactions(res.data);
     } catch (err) {
       console.error('Error fetching transactions:', err);
@@ -26,7 +26,7 @@ const TransactionList = () => {
 
   const deleteTransaction = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+      await axios.delete(`https://finance-viz-backend.onrender.com/api/transactions/${id}`);
       fetchTransactions();
     } catch (err) {
       console.error('Error deleting transaction:', err);
@@ -54,7 +54,7 @@ const TransactionList = () => {
   const updateTransaction = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/transactions/${editingId}`, editForm);
+      await axios.put(`https://finance-viz-backend.onrender.com/api/transactions/${editingId}`, editForm);
       closeModal();
       fetchTransactions();
     } catch (err) {

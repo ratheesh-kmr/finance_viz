@@ -17,7 +17,7 @@ const TransactionForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/transactions', formData);
+    await axios.post('https://finance-viz-backend.onrender.com/api/budgets', formData);
     setFormData({ amount: '', date: '', description: '', category: 'Others', type: 'expense' });
   };
 

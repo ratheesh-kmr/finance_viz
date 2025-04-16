@@ -1,19 +1,50 @@
 .charts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem; /* Add some horizontal padding on small screens */
+}
+
+.chart-box {
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make boxes equal height */
+}
+
+.chart-box h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+  .charts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
   }
-  
+}
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 576px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+  }
+
   .chart-box {
-    background-color: #1e1e2f;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    padding: 1rem;
   }
-  
+
   .chart-box h2 {
-    margin-bottom: 1rem;
-    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
   }
-  
+}

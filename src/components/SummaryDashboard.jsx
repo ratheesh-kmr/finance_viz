@@ -16,7 +16,7 @@ const SummaryDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/transactions');
+        const response = await axios.get('https://finance-viz-backend.onrender.com/api/transactions');
         const transactions = response.data;
 
         let income = 0;

@@ -7,19 +7,19 @@ const BudgetSection = () => {
   const [newBudget, setNewBudget] = useState({ category: 'Food', budgetAmount: '', month: '2025-04' });
 
   const fetchBudgets = async () => {
-    const res = await axios.get('http://localhost:5000/api/budgets');
+    const res = await axios.get('https://finance-viz-backend.onrender.com/api/budgets');
     setBudgets(res.data);
   };
 
   const addBudget = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/budgets', newBudget);
+    await axios.post('https://finance-viz-backend.onrender.com/api/budgets', newBudget);
     setNewBudget({ category: 'Food', budgetAmount: '', month: '2025-04' });
     fetchBudgets();
   };
 
   const deleteBudget = async (id) => {
-    await axios.delete(`http://localhost:5000/api/budgets/${id}`);
+    await axios.delete(`https://finance-viz-backend.onrender.com/api/budgets/${id}`);
     fetchBudgets();
   };
 
