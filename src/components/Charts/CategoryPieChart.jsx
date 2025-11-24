@@ -37,14 +37,14 @@ const CategoryPieChart = () => {
       return (
         <div
           style={{
-            background: 'rgba(0, 0, 0, 0.7)', // More transparent black background
+            background: 'rgba(0, 0, 0, 0.7)', 
             color: '#fff',
             padding: '8px 12px',
             borderRadius: '6px',
             border: '1px solid #ccc',
             fontSize: '14px',
             transition: 'opacity 0.3s ease-in-out',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)', // Subtle shadow for better visibility
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)', 
           }}
         >
           <p style={{ margin: 0 }}>Amount: ₹{payload[0].value.toLocaleString()}</p>
