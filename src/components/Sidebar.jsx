@@ -47,7 +47,7 @@ const Sidebar = () => {
         <div className="sidebar-footer">
           <div className="plan-info">
             <i className="icon-star"></i>
-            <span>Developed By Ratheesh Kumar</span>
+            <span>Your money, simplified.</span>
           </div>
         </div>
       </aside>
